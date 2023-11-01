@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:title="@string/Dot"
+        android:id="@+id/dot"
+        android:icon="@drawable/dot"
+        app:showAsAction="always"
+        android:orderInCategory="0"
+        android:tooltipText="@string/Dot"
+        />
+
+    <item
+        android:title="@string/Dot"
+        android:id="@+id/dotCopy"
+        android:icon="@drawable/dot"
+        app:showAsAction="never"
+        android:orderInCategory="0"
+        android:tooltipText="@string/Dot"
+        />
+
+    <item
+        android:title="@string/Line"
+        android:id="@+id/line"
+        android:icon="@drawable/line"
+        app:showAsAction="always"
+        android:orderInCategory="1"
+        android:tooltipText="@string/Line"
+        />
+
+    <item
+        android:title="@string/Line"
+        android:id="@+id/lineCopy"
+        android:icon="@drawable/line"
+        app:showAsAction="never"
+        android:orderInCategory="1"
+        android:tooltipText="@string/Line"
+
+        />
+
+    <item
+        android:title="@string/Rectangle"
+        android:id="@+id/rectangle"
+        android:icon="@drawable/rectangle"
+        app:showAsAction="always"
+        android:orderInCategory="2"
+        android:tooltipText="@string/Rectangle"
+        />
+
+    <item
+        android:title="@string/Rectangle"
+        android:id="@+id/rectangleCopy"
+        android:icon="@drawable/rectangle"
+        app:showAsAction="never"
+        android:orderInCategory="2"
+        android:tooltipText="@string/Rectangle"
+        />
+
+    <item
+        android:title="@string/Ellipse"
+        android:id="@+id/ellipse"
+        android:icon="@drawable/ellipse"
+        app:showAsAction="always"
+        android:orderInCategory="3"
+        android:tooltipText="@string/Ellipse"
+        />
+
+    <item
+        android:title="@string/Ellipse"
+        android:id="@+id/ellipseCopy"
+        android:icon="@drawable/ellipse"
+        app:showAsAction="never"
+        android:orderInCategory="3"
+        android:tooltipText="@string/Ellipse"
+        />
+</menu>
