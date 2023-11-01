@@ -6,11 +6,11 @@ import android.view.Menu
 import android.view.MenuItem
 import com.example.lab4.constance.Constance
 import com.example.lab4.databinding.ActivityMainBinding
-import com.example.lab4.editors.Editor
+import com.example.lab4.shapes.Shape
 
 class MainActivity : AppCompatActivity() {
     private lateinit var bindingClass : ActivityMainBinding
-    private lateinit var shapeEditor: ShapeEditor
+    private lateinit var myEditor: MyEditor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,21 +18,21 @@ class MainActivity : AppCompatActivity() {
         setContentView(bindingClass.root)
         setSupportActionBar(bindingClass.toolbar)
 
-        shapeEditor = ShapeEditor()
-        bindingClass.mainCanvas.shapeEditor = shapeEditor
+        myEditor = MyEditor()
+        bindingClass.mainCanvas.myEditor = myEditor
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        shapeEditor.setCurrentEditorConstructor(Constance.TOOL_CLASSES["Крапка"]!!)
+        myEditor.setCurrentShapeConstructor(Constance.TOOL_CLASSES["Крапка"]!!)
         bindingClass.toolbar.title = "Крапка"
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.toString() in Constance.TOOL_CLASSES) {
-            val toolClass: () -> Editor = Constance.TOOL_CLASSES[item.toString()]!!
-            shapeEditor.setCurrentEditorConstructor(toolClass)
+            val toolClass: (x: Float, y: Float) -> Shape = Constance.TOOL_CLASSES[item.toString()]!!
+            myEditor.setCurrentShapeConstructor(toolClass)
             bindingClass.toolbar.title = item.toString()
         }
         return super.onOptionsItemSelected(item)
