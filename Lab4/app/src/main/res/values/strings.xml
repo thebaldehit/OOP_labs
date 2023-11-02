@@ -6,4 +6,5 @@
     <string name="Ellipse">Еліпс</string>
     <string name="LineOO">Лінія з кружечками</string>
     <string name="Cube">Куб</string>
+    <string name="Clear">Очистити</string>
 </resources>

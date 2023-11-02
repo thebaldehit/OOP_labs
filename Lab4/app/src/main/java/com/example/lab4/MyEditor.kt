@@ -28,6 +28,10 @@ class MyEditor {
         }
     }
 
+    fun deleteAllFigures() {
+        shapes.clear()
+    }
+
     fun onLeftButtonDown(x: Float, y: Float, invalidateCanvas: () -> Unit) : Boolean {
         val curShape = currentShapeConstructor.invoke(x, y)
         addShape(curShape)

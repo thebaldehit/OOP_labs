@@ -59,15 +59,6 @@
 
     <item
         android:title="@string/Ellipse"
-        android:id="@+id/ellipse"
-        android:icon="@drawable/ellipse"
-        app:showAsAction="always"
-        android:orderInCategory="3"
-        android:tooltipText="@string/Ellipse"
-        />
-
-    <item
-        android:title="@string/Ellipse"
         android:id="@+id/ellipseCopy"
         android:icon="@drawable/ellipse"
         app:showAsAction="never"
@@ -84,20 +75,20 @@
         android:tooltipText="@string/LineOO"
         />
 
-<!--    <item-->
-<!--        android:title="@string/LineOO"-->
-<!--        android:id="@+id/lineOOCopy"-->
-<!--        android:icon="@drawable/line_oo"-->
-<!--        app:showAsAction="never"-->
-<!--        android:orderInCategory="4"-->
-<!--        android:tooltipText="@string/LineOO"-->
-<!--        />-->
-
     <item
         android:title="@string/Cube"
         android:id="@+id/cube"
         app:showAsAction="never"
         android:orderInCategory="5"
         android:tooltipText="@string/Cube"
+        />
+
+    <item
+        android:title="@string/Clear"
+        android:id="@+id/clear"
+        android:icon="@drawable/clear"
+        app:showAsAction="always"
+        android:orderInCategory="3"
+        android:tooltipText="@string/Clear"
         />
 </menu>

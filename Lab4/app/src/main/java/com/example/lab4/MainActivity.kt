@@ -2,6 +2,7 @@ package com.example.lab4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.lab4.constance.Constance
@@ -34,6 +35,9 @@ class MainActivity : AppCompatActivity() {
             val toolClass: (x: Float, y: Float) -> Shape = Constance.TOOL_CLASSES[item.toString()]!!
             myEditor.setCurrentShapeConstructor(toolClass)
             bindingClass.toolbar.title = item.toString()
+        } else if (item.toString() == getString(R.string.Clear)) {
+            myEditor.deleteAllFigures()
+            bindingClass.mainCanvas.invalidateCanvas()
         }
         return super.onOptionsItemSelected(item)
     }
