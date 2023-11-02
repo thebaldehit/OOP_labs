@@ -1,7 +1,6 @@
 package com.example.lab4
 
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 import com.example.lab4.constance.Constance
 import com.example.lab4.shapes.Shape
@@ -16,13 +15,6 @@ class MyEditor {
         currentShapeConstructor = toolClass
     }
 
-    fun setDefaultPaint(paint: Paint) { // mb private method
-        paint.color = Color.BLACK
-        paint.style = Paint.Style.STROKE
-        paint.strokeWidth = 10f
-//        paint.pathEffect = DashPathEffect(floatArrayOf(30f, 30f), 0f)
-    }
-
     private fun addShape(shape: Shape) {
         shapes.add(shape)
         if (shapes.size > Constance.LIST_MAX_SIZE) {
@@ -32,7 +24,6 @@ class MyEditor {
 
     fun drawAllFigures(canvas: Canvas, paint: Paint) {
         for (shape in shapes) {
-            setDefaultPaint(paint)
             shape.onDraw(canvas, paint)
         }
     }

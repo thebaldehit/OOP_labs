@@ -74,4 +74,30 @@
         android:orderInCategory="3"
         android:tooltipText="@string/Ellipse"
         />
+
+    <item
+        android:title="@string/LineOO"
+        android:id="@+id/lineOO"
+        android:icon="@drawable/line_oo"
+        app:showAsAction="never"
+        android:orderInCategory="4"
+        android:tooltipText="@string/LineOO"
+        />
+
+<!--    <item-->
+<!--        android:title="@string/LineOO"-->
+<!--        android:id="@+id/lineOOCopy"-->
+<!--        android:icon="@drawable/line_oo"-->
+<!--        app:showAsAction="never"-->
+<!--        android:orderInCategory="4"-->
+<!--        android:tooltipText="@string/LineOO"-->
+<!--        />-->
+
+    <item
+        android:title="@string/Cube"
+        android:id="@+id/cube"
+        app:showAsAction="never"
+        android:orderInCategory="5"
+        android:tooltipText="@string/Cube"
+        />
 </menu>

@@ -16,7 +16,7 @@ class MainCanvas(context: Context, attrs: AttributeSet) : View(context, attrs) {
         myEditor.drawAllFigures(canvas, paint)
     }
 
-    fun invalidateCanvas() {
+    private fun invalidateCanvas() {
         invalidate()
     }
 

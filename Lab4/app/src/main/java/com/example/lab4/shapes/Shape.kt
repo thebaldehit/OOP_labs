@@ -1,5 +1,7 @@
 package com.example.lab4.shapes
 import android.graphics.Canvas
+import android.graphics.Color
+import android.graphics.DashPathEffect
 import android.graphics.Paint
 
 open class Shape {
@@ -16,16 +18,30 @@ open class Shape {
         endY = y
     }
 
+    open fun onDraw(canvas: Canvas, paint: Paint) {
+        setDefaultPaint(paint)
+    }
+
     open fun setCords(x: Float, y: Float) {
         endX = x
         endY = y
     }
 
-    fun setIsDrawing(drawing: Boolean) {
+    fun setAllCords(xs: Float, ys: Float, xe: Float, ye: Float) {
+        startX = xs
+        startY = ys
+        endX = xe
+        endY = ye
+    }
+
+    open fun setIsDrawing(drawing: Boolean) {
         isDrawing = drawing
     }
 
-    open fun onDraw(canvas: Canvas, paint: Paint) {
-
+    protected fun setDefaultPaint(paint: Paint) {
+        paint.color = Color.BLACK
+        paint.style = Paint.Style.STROKE
+        paint.strokeWidth = 10f
+        paint.pathEffect = DashPathEffect(floatArrayOf(20f, 20f), 0f)
     }
 }

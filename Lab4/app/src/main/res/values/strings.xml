@@ -4,4 +4,6 @@
     <string name="Line">Лінія</string>
     <string name="Rectangle">Прямокутник</string>
     <string name="Ellipse">Еліпс</string>
+    <string name="LineOO">Лінія з кружечками</string>
+    <string name="Cube">Куб</string>
 </resources>
