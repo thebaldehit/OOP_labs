@@ -84,6 +84,15 @@
         />
 
     <item
+        android:title="@string/Table"
+        android:id="@+id/table"
+        android:icon="@drawable/table"
+        app:showAsAction="always"
+        android:orderInCategory="2"
+        android:tooltipText="@string/Table"
+        />
+
+    <item
         android:title="@string/Clear"
         android:id="@+id/clear"
         android:icon="@drawable/clear"

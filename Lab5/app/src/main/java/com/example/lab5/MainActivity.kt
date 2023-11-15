@@ -1,10 +1,13 @@
 package com.example.lab5
 
 import android.graphics.Color
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.example.lab5.constance.Constance
 import com.example.lab5.databinding.ActivityMainBinding
 import com.example.lab5.shapes.Shape
@@ -40,11 +43,13 @@ class MainActivity : AppCompatActivity() {
             val toolClass: (x: Float, y: Float) -> Shape = Constance.TOOL_CLASSES[item.toString()]!!
             myEditor.setCurrentShapeConstructor(toolClass)
             bindingClass.toolbar.title = item.toString()
-        } else if (item.toString() == getString(R.string.Clear)) {
+        } else if (item.itemId == R.id.clear) {
             myEditor.deleteAllFigures()
             bindingClass.mainCanvas.invalidateCanvas()
             MyEditor.table.clear()
             MyEditor.table.addRow(Color.CYAN, "Name", "xStart", "yStart", "xEnd", "yEnd")
+        } else if (item.itemId == R.id.table) {
+            bindingClass.scrollView2.visibility = if (bindingClass.scrollView2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
         return super.onOptionsItemSelected(item)
     }
