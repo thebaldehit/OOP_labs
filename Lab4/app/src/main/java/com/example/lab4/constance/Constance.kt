@@ -15,7 +15,6 @@ object Constance {
         "Еліпс" to { x: Float, y: Float -> EllipseShape(x, y) },
         "Лінія з кружечками" to { x: Float, y: Float -> LineOOShape(x, y) },
         "Куб" to { x: Float, y: Float -> CubeShape(x, y) },
-
     )
 
     const val LIST_MAX_SIZE = 127

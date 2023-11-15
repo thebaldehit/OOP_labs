@@ -1,4 +1,5 @@
 package com.example.lab4.shapes
+
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.DashPathEffect
@@ -38,7 +39,7 @@ open class Shape {
         isDrawing = drawing
     }
 
-    protected fun setDefaultPaint(paint: Paint) {
+    private fun setDefaultPaint(paint: Paint) {
         paint.color = Color.BLACK
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 10f

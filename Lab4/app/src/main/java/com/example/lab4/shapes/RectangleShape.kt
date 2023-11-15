@@ -1,6 +1,6 @@
 package com.example.lab4.shapes
+
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.Paint
 
 class RectangleShape (x: Float, y: Float) : Shape(x, y) {

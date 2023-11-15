@@ -1,7 +1,5 @@
 package com.example.lab4.shapes
 import android.graphics.Canvas
-import android.graphics.Color
-import android.graphics.DashPathEffect
 import android.graphics.Paint
 
 class LineShape (x: Float, y: Float) : Shape(x, y) {

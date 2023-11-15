@@ -2,7 +2,6 @@ package com.example.lab4
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.lab4.constance.Constance
