@@ -25,4 +25,8 @@ class Table(private val context: Context, private val tableLayout: TableLayout) 
         }
         tableLayout.addView(tableRow)
     }
+
+    fun clear() {
+        tableLayout.removeAllViews()
+    }
 }

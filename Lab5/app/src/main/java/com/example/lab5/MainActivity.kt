@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         } else if (item.toString() == getString(R.string.Clear)) {
             myEditor.deleteAllFigures()
             bindingClass.mainCanvas.invalidateCanvas()
+            MyEditor.table.clear()
+            MyEditor.table.addRow(Color.CYAN, "Name", "xStart", "yStart", "xEnd", "yEnd")
         }
         return super.onOptionsItemSelected(item)
     }
