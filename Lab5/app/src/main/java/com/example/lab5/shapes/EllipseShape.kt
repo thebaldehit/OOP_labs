@@ -5,6 +5,8 @@ import android.graphics.Color
 import android.graphics.Paint
 
 class EllipseShape (x: Float, y: Float) : Shape(x, y) {
+    override val name = "Еліпс"
+
     private var centerX = x
     private var centerY = y
 

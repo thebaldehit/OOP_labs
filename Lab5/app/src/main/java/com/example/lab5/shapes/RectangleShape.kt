@@ -4,6 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 
 class RectangleShape (x: Float, y: Float) : Shape(x, y) {
+    override val name = "Прямокутник"
     override fun onDraw(canvas: Canvas, paint: Paint) {
         super.onDraw(canvas, paint)
         if (!isDrawing) {

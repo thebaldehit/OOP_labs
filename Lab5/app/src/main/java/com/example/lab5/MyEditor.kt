@@ -1,15 +1,17 @@
 package com.example.lab5
 
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Paint
 import com.example.lab5.constance.Constance
 import com.example.lab5.shapes.Shape
 
-class MyEditor {
+object MyEditor {
     private lateinit var currentShapeConstructor : (x: Float, y: Float) -> Shape
     private val shapes = mutableListOf<Shape>()
     private var shape: Shape? = null
 
+    lateinit var table : Table
 
     fun setCurrentShapeConstructor(toolClass: (x: Float, y: Float) -> Shape) {
         currentShapeConstructor = toolClass
@@ -49,6 +51,10 @@ class MyEditor {
         shape?.setCords(x, y)
         shape?.setIsDrawing(false)
         invalidateCanvas()
+        val cords = shape?.getCords()
+        if (cords != null && cords.isNotEmpty()) {
+            table.addRow(Color.WHITE,  shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
+        }
         shape = null
         return true
     }

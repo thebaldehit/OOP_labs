@@ -4,6 +4,8 @@ import android.graphics.Canvas
 import android.graphics.Paint
 
 class CubeShape(x: Float, y: Float) : Shape(x, y) {
+    override val name = "Куб"
+
     private val frontRectangle = RectangleShape(x, y)
     private val backRectangle = RectangleShape(x, y)
     private val lineOne = LineShape(x, y)
@@ -29,6 +31,15 @@ class CubeShape(x: Float, y: Float) : Shape(x, y) {
         setCordsSecondLine(x, y, bigger)
         setCordsThirdLine(x, y, bigger)
         setCordsFourthLine(x, y, bigger)
+    }
+
+    override fun getCords(): FloatArray {
+        val startX = lineOne.getCords()[0]
+        val startY = lineOne.getCords()[1]
+        val endX = lineThree.getCords()[2]
+        val endY = lineThree.getCords()[3]
+
+        return floatArrayOf(startX, startY, endX, endY)
     }
 
     override fun setIsDrawing(drawing: Boolean) {

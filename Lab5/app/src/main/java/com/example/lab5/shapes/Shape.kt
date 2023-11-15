@@ -6,6 +6,8 @@ import android.graphics.DashPathEffect
 import android.graphics.Paint
 
 open class Shape {
+    open val name = "Фігура"
+
     protected var startX = 0f
     protected var startY = 0f
     protected var endX = 0f
@@ -26,6 +28,10 @@ open class Shape {
     open fun setCords(x: Float, y: Float) {
         endX = x
         endY = y
+    }
+
+    open fun getCords() : FloatArray {
+        return floatArrayOf(startX, startY, endX, endY)
     }
 
     fun setAllCords(xs: Float, ys: Float, xe: Float, ye: Float) {
