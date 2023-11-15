@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Lab5</string>
+    <string name="Dot">Крапка</string>
+    <string name="Line">Лінія</string>
+    <string name="Rectangle">Прямокутник</string>
+    <string name="Ellipse">Еліпс</string>
+    <string name="LineOO">Лінія з кружечками</string>
+    <string name="Cube">Куб</string>
+    <string name="Clear">Очистити</string>
+</resources>
