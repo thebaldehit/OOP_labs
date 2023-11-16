@@ -7,6 +7,7 @@ import android.graphics.Paint
 
 open class Shape {
     open val name = "Фігура"
+    private var defaultColor = Color.BLACK
 
     protected var startX = 0f
     protected var startY = 0f
@@ -45,8 +46,12 @@ open class Shape {
         isDrawing = drawing
     }
 
+    open fun setColorDefault(color: Int) {
+        defaultColor = color
+    }
+
     private fun setDefaultPaint(paint: Paint) {
-        paint.color = Color.BLACK
+        paint.color = defaultColor
         paint.style = Paint.Style.STROKE
         paint.strokeWidth = 10f
         paint.pathEffect = DashPathEffect(floatArrayOf(20f, 20f), 0f)

@@ -36,4 +36,10 @@ class LineOOShape (x: Float, y: Float) : Shape(x, y) {
         ellipseTwo.setCenterCords(x, y)
         ellipseTwo.setCords(x + radius, y + radius)
     }
+
+    override fun setColorDefault(color: Int) {
+        line.setColorDefault(color)
+        ellipseOne.setColorDefault(color)
+        ellipseTwo.setColorDefault(color)
+    }
 }

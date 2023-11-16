@@ -3,11 +3,13 @@ package com.example.lab5
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.util.Log
 import com.example.lab5.constance.Constance
 import com.example.lab5.shapes.Shape
 
 object MyEditor {
     private lateinit var currentShapeConstructor : (x: Float, y: Float) -> Shape
+    private var highlightedShape: Shape? = null
     private val shapes = mutableListOf<Shape>()
     private var shape: Shape? = null
 
@@ -34,6 +36,14 @@ object MyEditor {
         shapes.clear()
     }
 
+    private fun highlightFigure(idx: Int, invalidateCanvas: () -> Unit) {
+        highlightedShape?.setColorDefault(Color.BLACK)
+        val highlightShape = shapes[idx - 1]
+        highlightShape.setColorDefault(Color.CYAN)
+        highlightedShape = highlightShape
+        invalidateCanvas()
+    }
+
     fun onLeftButtonDown(x: Float, y: Float, invalidateCanvas: () -> Unit) : Boolean {
         val curShape = currentShapeConstructor.invoke(x, y)
         addShape(curShape)
@@ -53,7 +63,7 @@ object MyEditor {
         invalidateCanvas()
         val cords = shape?.getCords()
         if (cords != null && cords.isNotEmpty()) {
-            table.addRow(Color.WHITE,  shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
+            table.addRow(Color.WHITE, { idx: Int -> highlightFigure(idx, invalidateCanvas) }, shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
         }
         shape = null
         return true

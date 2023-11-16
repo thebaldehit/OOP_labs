@@ -78,6 +78,15 @@ class CubeShape(x: Float, y: Float) : Shape(x, y) {
         backRectangle.setAllCords(startX + bigger * 0.6f, startY - bigger * 0.3f, startX + bigger * 1.6f, startY + bigger * 0.7f)
     }
 
+    override fun setColorDefault(color: Int) {
+        frontRectangle.setColorDefault(color)
+        backRectangle.setColorDefault(color)
+        lineOne.setColorDefault(color)
+        lineTwo.setColorDefault(color)
+        lineThree.setColorDefault(color)
+        lineFour.setColorDefault(color)
+    }
+
     private fun getBiggerSide(x: Float, y: Float): Float {
         val deltaX = x - startX
         val deltaY = y - startY
