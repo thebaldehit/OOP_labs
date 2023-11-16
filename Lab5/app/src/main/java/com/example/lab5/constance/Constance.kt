@@ -13,7 +13,7 @@ object Constance {
         "Лінія" to { x: Float, y: Float -> LineShape(x, y) },
         "Прямокутник" to { x: Float, y: Float -> RectangleShape(x, y) },
         "Еліпс" to { x: Float, y: Float -> EllipseShape(x, y) },
-        "Лінія з кружечками" to { x: Float, y: Float -> LineOOShape(x, y) },
+        "Гантеля" to { x: Float, y: Float -> LineOOShape(x, y) },
         "Куб" to { x: Float, y: Float -> CubeShape(x, y) },
     )
 

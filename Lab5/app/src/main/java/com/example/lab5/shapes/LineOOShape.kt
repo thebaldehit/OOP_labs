@@ -4,7 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 
 class LineOOShape (x: Float, y: Float) : Shape(x, y) {
-    override val name = "Лінія з кружечками"
+    override val name = "Гантеля"
 
     private val radius = 20f
     private val line = LineShape(x, y)

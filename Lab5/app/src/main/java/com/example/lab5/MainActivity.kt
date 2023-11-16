@@ -29,6 +29,9 @@ class MainActivity : AppCompatActivity() {
         myEditor = MyEditor
         myEditor.table = table
         bindingClass.mainCanvas.myEditor = myEditor
+
+        val fileUtil = FileUtils(this, "data.txt")
+        myEditor.fileUtils = fileUtil
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -44,10 +47,10 @@ class MainActivity : AppCompatActivity() {
             myEditor.setCurrentShapeConstructor(toolClass)
             bindingClass.toolbar.title = item.toString()
         } else if (item.itemId == R.id.clear) {
-            myEditor.deleteAllFigures()
+            myEditor.deleteAllShapes()
             bindingClass.mainCanvas.invalidateCanvas()
-            MyEditor.table.clear()
-            MyEditor.table.addRow(Color.CYAN, {}, {}, "Name", "xStart", "yStart", "xEnd", "yEnd")
+            table.clear()
+            table.addRow(Color.CYAN, {}, {}, "Name", "xStart", "yStart", "xEnd", "yEnd")
         } else if (item.itemId == R.id.table) {
             bindingClass.scrollView2.visibility = if (bindingClass.scrollView2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }

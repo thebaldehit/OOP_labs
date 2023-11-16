@@ -13,7 +13,7 @@ class MainCanvas(context: Context, attrs: AttributeSet) : View(context, attrs) {
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
-        myEditor.drawAllFigures(canvas, paint)
+        myEditor.drawAllShapes(canvas, paint)
     }
 
     fun invalidateCanvas() {

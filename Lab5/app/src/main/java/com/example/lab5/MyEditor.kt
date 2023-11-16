@@ -14,6 +14,7 @@ object MyEditor {
     private var shape: Shape? = null
 
     lateinit var table : Table
+    lateinit var fileUtils: FileUtils
 
     fun setCurrentShapeConstructor(toolClass: (x: Float, y: Float) -> Shape) {
         currentShapeConstructor = toolClass
@@ -24,30 +25,40 @@ object MyEditor {
         if (shapes.size > Constance.LIST_MAX_SIZE) {
             shapes.removeAt(0)
         }
+        fileUtils.appendFile(serializeShape(shape))
     }
 
-    fun drawAllFigures(canvas: Canvas, paint: Paint) {
+    fun drawAllShapes(canvas: Canvas, paint: Paint) {
         for (shape in shapes) {
             shape.onDraw(canvas, paint)
         }
     }
 
-    fun deleteAllFigures() {
+    fun deleteAllShapes() {
         shapes.clear()
+        fileUtils.clearFile()
     }
 
-    private fun deleteFigure(idx: Int, invalidateCanvas: () -> Unit) {
-        Log.d("MyTag", "here $idx")
+    private fun deleteShape(idx: Int, invalidateCanvas: () -> Unit) {
         shapes.removeAt(idx - 1)
         invalidateCanvas()
+        fileUtils.clearFile()
+        for (shape in shapes) {
+            fileUtils.appendFile(serializeShape(shape))
+        }
     }
 
-    private fun highlightFigure(idx: Int, invalidateCanvas: () -> Unit) {
+    private fun highlightShapes(idx: Int, invalidateCanvas: () -> Unit) {
         highlightedShape?.setColorDefault(Color.BLACK)
         val highlightShape = shapes[idx - 1]
         highlightShape.setColorDefault(Color.CYAN)
         highlightedShape = highlightShape
         invalidateCanvas()
+    }
+
+    private fun serializeShape(shape: Shape) : String {
+        val cords = shape.getCords()
+        return "${shape.name} ${cords.joinToString(separator = " ")}\n"
     }
 
     fun onLeftButtonDown(x: Float, y: Float, invalidateCanvas: () -> Unit) : Boolean {
@@ -69,7 +80,7 @@ object MyEditor {
         invalidateCanvas()
         val cords = shape?.getCords()
         if (cords != null && cords.isNotEmpty()) {
-            table.addRow(Color.WHITE, { idx: Int -> highlightFigure(idx, invalidateCanvas) }, { idx: Int -> deleteFigure(idx, invalidateCanvas) }, shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
+            table.addRow(Color.WHITE, { idx: Int -> highlightShapes(idx, invalidateCanvas) }, { idx: Int -> deleteShape(idx, invalidateCanvas) }, shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
         }
         shape = null
         return true
