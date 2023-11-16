@@ -36,6 +36,12 @@ object MyEditor {
         shapes.clear()
     }
 
+    private fun deleteFigure(idx: Int, invalidateCanvas: () -> Unit) {
+        Log.d("MyTag", "here $idx")
+        shapes.removeAt(idx - 1)
+        invalidateCanvas()
+    }
+
     private fun highlightFigure(idx: Int, invalidateCanvas: () -> Unit) {
         highlightedShape?.setColorDefault(Color.BLACK)
         val highlightShape = shapes[idx - 1]
@@ -63,7 +69,7 @@ object MyEditor {
         invalidateCanvas()
         val cords = shape?.getCords()
         if (cords != null && cords.isNotEmpty()) {
-            table.addRow(Color.WHITE, { idx: Int -> highlightFigure(idx, invalidateCanvas) }, shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
+            table.addRow(Color.WHITE, { idx: Int -> highlightFigure(idx, invalidateCanvas) }, { idx: Int -> deleteFigure(idx, invalidateCanvas) }, shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
         }
         shape = null
         return true

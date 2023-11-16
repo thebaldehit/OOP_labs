@@ -12,19 +12,21 @@ import android.widget.TextView
 
 class Table(private val context: Context, private val tableLayout: TableLayout) {
 
-    fun addRow(color: Int, highlightFigure: (idx: Int) -> Unit, vararg cellTexts: String) {
+    fun addRow(color: Int, highlightFigure: (idx: Int) -> Unit, deleteFigure: (idx: Int) -> Unit, vararg cellTexts: String) {
         val rowNumber = tableLayout.childCount
         val tableRow = TableRow(context)
 
         if (rowNumber !== 0) {
             tableRow.setOnClickListener {
-                Log.d("MyTag", "short $rowNumber")
                 setDefaultColor(color)
                 tableRow.setBackgroundColor(Color.GREEN)
-                highlightFigure(rowNumber)
+                val idx = tableLayout.indexOfChild(tableRow)
+                highlightFigure(idx)
             }
             tableRow.setOnLongClickListener {
-                Log.d("MyTag", "long")
+                val idx = tableLayout.indexOfChild(tableRow)
+                tableLayout.removeView(tableRow)
+                deleteFigure(idx)
                 true
             }
         }

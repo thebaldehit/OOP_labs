@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(bindingClass.toolbar)
 
         table = Table(this, bindingClass.tableLayout)
-        table.addRow(Color.CYAN, {}, "Name", "xStart", "yStart", "xEnd", "yEnd")
+        table.addRow(Color.CYAN, {}, {}, "Name", "xStart", "yStart", "xEnd", "yEnd")
 
         myEditor = MyEditor
         myEditor.table = table
@@ -47,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             myEditor.deleteAllFigures()
             bindingClass.mainCanvas.invalidateCanvas()
             MyEditor.table.clear()
-            MyEditor.table.addRow(Color.CYAN, {}, "Name", "xStart", "yStart", "xEnd", "yEnd")
+            MyEditor.table.addRow(Color.CYAN, {}, {}, "Name", "xStart", "yStart", "xEnd", "yEnd")
         } else if (item.itemId == R.id.table) {
             bindingClass.scrollView2.visibility = if (bindingClass.scrollView2.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
