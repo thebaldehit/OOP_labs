@@ -25,7 +25,6 @@ object MyEditor {
         if (shapes.size > Constance.LIST_MAX_SIZE) {
             shapes.removeAt(0)
         }
-        fileUtils.appendFile(serializeShape(shape))
     }
 
     fun drawAllShapes(canvas: Canvas, paint: Paint) {
@@ -61,6 +60,23 @@ object MyEditor {
         return "${shape.name} ${cords.joinToString(separator = " ")}\n"
     }
 
+    fun uploadShapes(invalidateCanvas: () -> Unit) {
+        val dataString = fileUtils.readFile().trimIndent()
+        if (dataString != "") {
+            val data = dataString.split("\n")
+            for (item in data) {
+                val shapeData = item.trimIndent().split(" ")
+                val createShapeInstance: (x: Float, y: Float) -> Shape = Constance.TOOL_CLASSES[shapeData[0]]!!
+                val createdShape = createShapeInstance.invoke(shapeData[1].toFloat(), shapeData[2].toFloat())
+                addShape(createdShape)
+                createdShape.setCords(shapeData[3].toFloat(), shapeData[4].toFloat())
+                createdShape.setIsDrawing(false)
+                table.addRow(Color.WHITE, { idx: Int -> highlightShapes(idx, invalidateCanvas) }, { idx: Int -> deleteShape(idx, invalidateCanvas) }, shapeData[0], shapeData[1], shapeData[2], shapeData[3], shapeData[4])
+            }
+        }
+        invalidateCanvas()
+    }
+
     fun onLeftButtonDown(x: Float, y: Float, invalidateCanvas: () -> Unit) : Boolean {
         val curShape = currentShapeConstructor.invoke(x, y)
         addShape(curShape)
@@ -82,6 +98,7 @@ object MyEditor {
         if (cords != null && cords.isNotEmpty()) {
             table.addRow(Color.WHITE, { idx: Int -> highlightShapes(idx, invalidateCanvas) }, { idx: Int -> deleteShape(idx, invalidateCanvas) }, shape!!.name, cords[0].toString(), cords[1].toString(), cords[2].toString(), cords[3].toString())
         }
+        fileUtils.appendFile(serializeShape(shape!!))
         shape = null
         return true
     }

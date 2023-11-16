@@ -36,8 +36,8 @@ class CubeShape(x: Float, y: Float) : Shape(x, y) {
     override fun getCords(): FloatArray {
         val startX = lineOne.getCords()[0]
         val startY = lineOne.getCords()[1]
-        val endX = lineThree.getCords()[2]
-        val endY = lineThree.getCords()[3]
+        val endX = lineThree.getCords()[0]
+        val endY = lineThree.getCords()[1]
 
         return floatArrayOf(startX, startY, endX, endY)
     }

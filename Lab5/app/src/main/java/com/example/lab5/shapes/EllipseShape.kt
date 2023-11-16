@@ -31,6 +31,10 @@ class EllipseShape (x: Float, y: Float) : Shape(x, y) {
         endY = centerY + deltaY
     }
 
+    override fun getCords(): FloatArray {
+        return floatArrayOf(centerX, centerY, endX, endY)
+    }
+
     fun setCenterCords(x: Float, y: Float) {
         centerX = x
         centerY = y

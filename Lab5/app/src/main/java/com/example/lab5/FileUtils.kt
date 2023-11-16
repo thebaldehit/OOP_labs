@@ -37,7 +37,7 @@ class FileUtils(private val context: Context, private val fileName: String) {
             val reader = BufferedReader(InputStreamReader(inputStream))
             var line: String? = reader.readLine()
             while (line != null) {
-                result += line
+                result += "$line\n"
                 line = reader.readLine()
             }
             reader.close()

@@ -32,6 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         val fileUtil = FileUtils(this, "data.txt")
         myEditor.fileUtils = fileUtil
+
+        myEditor.uploadShapes{ bindingClass.mainCanvas.invalidateCanvas() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -43,8 +45,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.toString() in Constance.TOOL_CLASSES) {
-            val toolClass: (x: Float, y: Float) -> Shape = Constance.TOOL_CLASSES[item.toString()]!!
-            myEditor.setCurrentShapeConstructor(toolClass)
+            val createShapeInstance: (x: Float, y: Float) -> Shape = Constance.TOOL_CLASSES[item.toString()]!!
+            myEditor.setCurrentShapeConstructor(createShapeInstance)
             bindingClass.toolbar.title = item.toString()
         } else if (item.itemId == R.id.clear) {
             myEditor.deleteAllShapes()

@@ -26,6 +26,10 @@ class LineOOShape (x: Float, y: Float) : Shape(x, y) {
         setEllipseLastCords(x, y)
     }
 
+    override fun getCords(): FloatArray {
+        return line.getCords()
+    }
+
     override fun setIsDrawing(drawing: Boolean) {
         ellipseOne.setIsDrawing(drawing)
         ellipseTwo.setIsDrawing(drawing)
