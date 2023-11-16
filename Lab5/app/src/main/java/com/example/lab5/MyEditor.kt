@@ -3,7 +3,6 @@ package com.example.lab5
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
-import android.util.Log
 import com.example.lab5.constance.Constance
 import com.example.lab5.shapes.Shape
 
@@ -73,8 +72,8 @@ object MyEditor {
                 createdShape.setIsDrawing(false)
                 table.addRow(Color.WHITE, { idx: Int -> highlightShapes(idx, invalidateCanvas) }, { idx: Int -> deleteShape(idx, invalidateCanvas) }, shapeData[0], shapeData[1], shapeData[2], shapeData[3], shapeData[4])
             }
+            invalidateCanvas()
         }
-        invalidateCanvas()
     }
 
     fun onLeftButtonDown(x: Float, y: Float, invalidateCanvas: () -> Unit) : Boolean {

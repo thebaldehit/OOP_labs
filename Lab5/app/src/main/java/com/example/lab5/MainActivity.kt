@@ -1,10 +1,8 @@
 package com.example.lab5
 
 import android.graphics.Color
-import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -30,8 +28,7 @@ class MainActivity : AppCompatActivity() {
         myEditor.table = table
         bindingClass.mainCanvas.myEditor = myEditor
 
-        val fileUtil = FileUtils(this, "data.txt")
-        myEditor.fileUtils = fileUtil
+        myEditor.fileUtils = FileUtils(this, "data.txt")
 
         myEditor.uploadShapes{ bindingClass.mainCanvas.invalidateCanvas() }
     }

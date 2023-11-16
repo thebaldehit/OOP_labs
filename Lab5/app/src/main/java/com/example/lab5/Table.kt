@@ -13,10 +13,9 @@ import android.widget.TextView
 class Table(private val context: Context, private val tableLayout: TableLayout) {
 
     fun addRow(color: Int, highlightFigure: (idx: Int) -> Unit, deleteFigure: (idx: Int) -> Unit, vararg cellTexts: String) {
-        val rowNumber = tableLayout.childCount
         val tableRow = TableRow(context)
 
-        if (rowNumber !== 0) {
+        if (tableLayout.childCount != 0) {
             tableRow.setOnClickListener {
                 setDefaultColor(color)
                 tableRow.setBackgroundColor(Color.GREEN)
@@ -34,8 +33,7 @@ class Table(private val context: Context, private val tableLayout: TableLayout) 
         for (text in cellTexts) {
             val textView = TextView(context)
             textView.text = text
-            val params = TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 10f)
-            textView.layoutParams = params
+            textView.layoutParams = TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 10f)
             textView.gravity = Gravity.CENTER
             tableRow.addView(textView)
         }
