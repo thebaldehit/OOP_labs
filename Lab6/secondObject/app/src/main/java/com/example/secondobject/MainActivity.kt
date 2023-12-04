@@ -1,12 +1,10 @@
 package com.example.secondobject
 
-import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.secondobject.databinding.ActivityMainBinding
 import kotlin.random.Random
