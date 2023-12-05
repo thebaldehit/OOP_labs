@@ -17,11 +17,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.bNext.setOnClickListener {
-            setResult(RESULT_OK)
-            finish()
-        }
-
         val n = intent.getStringExtra("n")
         val Min = intent.getStringExtra("Min")
         val Max = intent.getStringExtra("Max")

@@ -10,17 +10,6 @@
     android:paddingTop="16dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/bEnd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/lineChart"
-        android:layout_alignEnd="@+id/lineChart"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="139dp"
-        android:layout_marginEnd="149dp"
-        android:text="Button" />
-
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"

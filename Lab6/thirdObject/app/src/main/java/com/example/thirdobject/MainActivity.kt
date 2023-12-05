@@ -23,11 +23,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        binding.bEnd.setOnClickListener {
-            setResult(RESULT_OK)
-            finish()
-        }
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
